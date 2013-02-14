@@ -7,7 +7,7 @@ module.exports.index = function(req,res) {
 	var results = [];
 	fs.readdir(uploadPath, function(err, files) {
 		files.forEach(function(file) {
-			results.push "/uploads/" + file;
+			results.push("/uploads/" + file);
 		});
         res.send(results);
 	});
