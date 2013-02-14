@@ -1,0 +1,84 @@
+
+<div id = "other">
+<div class="control-group"  data-bind="validationElement: title">
+    <label  class="control-label" for = "title">Title</label>
+    <div class="controls">
+        <input type="text" style = "width: 100%;"  name = "title" id = "title" data-bind="value: title, valueUpdate: 'afterkeydown'">
+    </div>
+</div>
+
+<div class="control-group"  data-bind="validationElement: slug">
+    <label  class="control-label" for = "slug">Slug</label>
+    <div class="controls">
+        <input type="text" style = "width: 100%;"  name = "slug" id = "slug" data-bind="value: slug, valueUpdate: 'afterkeydown'">
+    </div>
+</div>
+<div align="right">
+<div class="btn-group">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#" style = "text-align:left">
+    Add
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+     <li style = "text-align:left"><a data-bind="click: AddHtmlContent">Text</a></li>
+     <li style = "text-align:left"><a data-bind="click: AddGalleryContent">A Gallery</a></li>
+  </ul>
+</div>
+</div>
+
+<div data-bind = "foreach: content" >
+    <div data-bind="event: { mouseover: ToggleSelected, mouseout: ToggleSelected }" style="padding-top:50px;">
+        <div>
+            <button class="close pull-right" style = "display: inline" data-bind="click: $parent.Remove, visible: selected">&times;</button>
+            <label data-bind="text: type"></label>
+            
+            <div class = "clearfix"></div>
+        </div>
+        <div  data-bind="template: template"></div>
+    </div>
+</div>
+
+<br/>
+<button data-bind="command: save" class="btn btn-success">Save</button>
+</div>
+<br /><br />
+
+<script type="text/html" id = "html-content-template">
+    
+    <div style = "height:350px;width:100%;"  data-bind="htmlcontent: content" class = "uneditable-input" ></div>
+</script>
+
+<script type="text/html"  id = "gallery-content-template">
+
+    <ul  class="thumbnails" data-bind = "sortable: {data:images}" >
+    
+        <li data-bind = "event: { mouseover: ToggleSelected, mouseout: ToggleSelected }">
+            
+            <div class="thumbnail" style = "width: 150px; height: 150px;vertical-align: middle; display: table-cell" >
+                <div style = "height: 20px;">
+                    <button class = "close"  data-bind="visible: selected, click: $parent.Remove" style = "position: relative;">&times</button>
+                </div>
+                <img  data-bind = "attr: {src: image}">
+            </div>
+         
+        </li>  
+    </ul>
+        
+
+    
+    <ul class="thumbnails">
+        <li >
+            <a href ="#"  data-bind = "click: ShowFileChooser"  class="thumbnail" style = "width: 150px; height: 150px;text-align: center;vertical-align: middle; display: table-cell; border-style: dashed" >
+                Click here to upload an image
+            </a>
+            
+            <input type="file" id = "file_upload" style = "display: none;" data-bind = "event: {change: UploadImage}"/>
+                
+        </li>
+    </ul>
+
+</script>
+
+
+
+

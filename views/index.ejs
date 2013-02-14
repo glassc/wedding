@@ -1,0 +1,15 @@
+    
+<% for(var i=0; i< page.content.length; i++) {
+   
+    content = page.content[i];
+    if( content.type == "text" ) {
+%>
+
+<%- content.content %>
+
+<% } else { %>
+    <%- partial('gallery.page.ejs') %>
+ <% }
+ 
+ } %>
+ 

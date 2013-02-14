@@ -1,0 +1,52 @@
+<% layout('../layouts/admin') %>
+
+<div id="confirmation-dialog" class="modal hide fade">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" data-bind = "click: cancel">&times;</button>
+        <h3>Confirmation</h3>
+    </div>
+    <div class="modal-body" data-bind="text:message"></div>
+    <div class="modal-footer">
+
+        <a href="#" class="btn btn-primary" data-bind = "click: Ok">Yes</a>
+        <a href="#" class="btn"  data-dismiss="modal" data-bind = "click: cancel">No</a>
+    </div>
+</div>
+
+<div class="row" xmlns="http://www.w3.org/1999/html">
+
+    <div style = "height: 50px">
+    <div id = "flash-region" class="alert alert-success"  data-bind="flash: message" style="display: none"></div>
+    </div>
+    <div class="span3" id="admin-nav">
+
+
+        <div id="navigation-region">
+            <div class="nav-header"><a href="/admin/" >Dashboard</a></div>
+            <div class="nav-header"><a href="/admin/" >Settings</a></div>
+            <div class="nav-header">Pages</div>
+            <ul class="nav nav-list" data-bind="sortable: {data: pages, afterMove: save}" style="display: none;" id="page-navigation">
+                <li data-bind=" event: { mouseover: select, mouseout: unselect }">
+
+                    <a data-bind="text: title, attr: {href: url}" style="display:inline;"></a>
+
+                    <span style="float:right;" data-bind="visible: isSelected"><button class="btn btn-link" style ="color:#FF0000;" data-bind="command: remove, visible: isSelected">[remove]</button></span>
+
+                </li>
+            </ul>
+            <ul class ="nav nav-list">
+                <li><a href="#/pages/new">Add Page</a></li>
+            </ul>
+            <div class="nav-header"><a href="/admin/#/users" >Users</a></div>
+        </div>
+        
+    </div>
+
+
+    <div class = "span9">
+
+        <div  id="main-region"></div>
+     </div>
+
+    </div>
+</div>
