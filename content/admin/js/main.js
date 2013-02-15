@@ -13,7 +13,7 @@ require(['knockout', 'sammy', 'amplify', 'domready!','kovalidation','flash','koc
 
         this.get('#/pages/new', function(context) {
 
-            require(['js/pages'], function(pages) {
+            require(['/admin/pages/pages.js'], function(pages) {
                 pages.new();
             });
 
@@ -26,7 +26,7 @@ require(['knockout', 'sammy', 'amplify', 'domready!','kovalidation','flash','koc
 
         this.get('#/pages/:page', function(context) {
             var page = this.params['page'];
-            require(['js/pages'], function(pages) {
+            require(['/admin/pages/pages.js'], function(pages) {
                 pages.edit(page);
             });
 
@@ -51,7 +51,7 @@ require(['knockout', 'sammy', 'amplify', 'domready!','kovalidation','flash','koc
 
     }).run("#/");
 
-    require(['js/pages'], function(pages) {
+    require(['/admin/pages/pages.js'], function(pages) {
         pages.navigation();
     });
 });
