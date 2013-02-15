@@ -15,7 +15,7 @@ require.config({
         "ko.flash": 'js/ko.flash',
         sammy: 'http://cdnjs.cloudflare.com/ajax/libs/sammy.js/0.7.4/sammy.min',
         flash: 'js/flash',
-        amplify: '//cdnjs.cloudflare.com/ajax/libs/amplifyjs/1.1.0/amplify.min',
+        amplify: 'http://cdnjs.cloudflare.com/ajax/libs/amplifyjs/1.1.0/amplify.min',
         "confirmation.dialog": 'js/confirmation.dialog',
         ckeditor : 'js/ckeditor/adaptors/jquery',
         "ckeditor.core" : "js/ckeditor/ckeditor",

@@ -7,16 +7,16 @@ var admin = require('./controllers/admin');
 var users = require('./controllers/users');
 var authentication = require('./lib/authentication');
 
-
 app.set('views', __dirname + '/views');
 app.engine('ejs', require('ejs-locals'));
 app.set('view engine', 'ejs');
 app.use(express.favicon());
-app.use(express.static(__dirname + '/content', { maxAge: 1 }));
 app.use(express.bodyParser());
 app.use(express.cookieParser());
 app.use(express.session({secret: "la la la"}));
+app.use(express.static(__dirname + '/content', { maxAge: 1 }));
 authentication.enable(app);
+
 
 
 // API
