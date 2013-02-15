@@ -41,7 +41,7 @@ require(['knockout', 'sammy', 'amplify', 'domready!','kovalidation','flash','koc
         });
         
         this.get('#/users', function(context) {
-              require(['js/users'], function(users) {
+              require(['/admin/users/users.js'], function(users) {
               
                 users.index();
                 
