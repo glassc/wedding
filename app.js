@@ -1,6 +1,5 @@
 var express = require('express');
 var app = express();
-var home = require('./controllers/home');
 var admin = require('./controllers/admin');
 
 var authentication = require('./lib/authentication');
@@ -31,8 +30,5 @@ app.get("/admin/login", admin.login);
 //app.all("/admin/*", authentication.required);
 app.get("/admin", admin.index);
 
-// FRONT
-app.get("/", home.index);
-app.get("/:slug", home.index);
 
 app.listen(process.env.PORT);
