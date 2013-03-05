@@ -12,20 +12,14 @@ app.use(express.cookieParser());
 app.use(express.session({secret: "la la la"}));
 
 
-//authentication.enable(app);
-require("./admin")(app);
+authentication.enable(app);
+
+//app.all("/api/*", authentication.required);
+
+require("./admin")(app, authentication);
 require("./pages")(app);
 require('./users')(app);
 require("./images")(app);
-
-// API
-//app.all("/api/*", authentication.required);
-
-
-
-
-// ADMIN
-
 
 
 app.listen(process.env.PORT);
