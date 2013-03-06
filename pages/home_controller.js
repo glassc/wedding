@@ -6,8 +6,9 @@ var path = require('path');
 var template_dir = path.resolve(__dirname, "templates");
 
 module.exports.index = function(req,res) {
-    var slug = req.params.slug !== null ? "/" + req.params.slug : "/"
-    var template = req.params.slug !== null ? "page" : "index";
+    var is_home = typeof(req.params.slug) == 'undefined';
+    var slug = !is_home ? "/" + req.params.slug : "/"
+    var template = !is_home ? "page" : "index";
 
     async.parallel({
             page: function(callback) {
@@ -19,6 +20,7 @@ module.exports.index = function(req,res) {
                 })
             }        
         }, function(err, result) {
+            
             if(result.page === null)
                 res.send(404);
             else
