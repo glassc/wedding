@@ -1,7 +1,7 @@
 var controller = require('./images_controller');
 var express = require('express');
 var path = require('path');
-var config = require("../config/config.js");
+var config = require("../config");
 
 module.exports = function(app)
 {

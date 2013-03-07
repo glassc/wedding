@@ -1,6 +1,6 @@
 var fs = require('fs');
 var path = require('path');
-var config = require("../config/config.js");
+var config = require("../config");
 
 var uploadPath = path.resolve(__dirname,"..", "uploads");
 
