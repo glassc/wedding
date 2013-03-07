@@ -14,7 +14,7 @@ app.use(express.session({secret: "la la la"}));
 
 authentication.enable(app);
 
-//app.all("/api/*", authentication.required);
+app.all("/api/*", authentication.required);
 
 require("./admin")(app, authentication);
 require("./pages")(app);
