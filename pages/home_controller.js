@@ -24,13 +24,13 @@ module.exports.index = function(req,res) {
             if(result.page === null)
                 res.send(404);
             else
-                res.render(path.resolve(template_dir, template), {page: assemble(result)});
+                res.render(path.resolve(template_dir, template), {page: assemble(result, slug)});
         })
 }
     
 
-function assemble(data) {
+function assemble(data, slug) {
     var result = {content: data.page.content, title: data.page.title, navigation: []}
-    data.navigation.forEach(function(item) { return {title:item.title, link: item.slug}});
+    data.navigation.forEach(function(item) { result.navigation.push({title:item.title, link: item.slug, current: item.slug == slug}) });
     return result;
 }

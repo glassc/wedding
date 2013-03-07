@@ -1,19 +1,17 @@
-<div id="subheader">
-	<div class="row">
-		<div class="twelve columns">
-			<p class="left">
+<% layout('layout') %>
 
-				<%- page.title %>
-				
-			</p>
-			
-		</div>
-	</div>
-</div>
-<div class="hr">
-</div>
-<div class="row">
-<div class="eight columns">
-<%- page.content[0] %>
-</div>
+<style>
+    
+      /* Special class on .container surrounding .navbar, used for positioning it into place. */
+    .navbar-wrapper {
+      margin-top: 20px;
+      
+    }
+</style>
+<div class = "container" style = "margin-top: 25px">
+
+<% for(var i = 0; i < page.content.length; i++ ) { %>
+<%- page.content[i].content %>
+<% } %>
+
 </div>

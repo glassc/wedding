@@ -15,9 +15,10 @@ define(["knockout", "jquery", "kosortable"], function(ko, $) {
         {
             images.forEach(function(image) {
                 self.images.push(new ImageViewModel(image));
-            })
+            });
         }
-      
+        
+        
         
         self.ShowFileChooser = function()
         {
@@ -50,9 +51,17 @@ define(["knockout", "jquery", "kosortable"], function(ko, $) {
         
         self.ToJSON = function()
         {
+            var urls = [];
+            
+            self.images().forEach(function(image) {
+               urls.push(image.image); 
+            });
+            
+            
+            
             return {
                 type: "gallery",
-                images: self.images()
+                images: urls
             }
           
             
@@ -73,6 +82,7 @@ define(["knockout", "jquery", "kosortable"], function(ko, $) {
     
     function ImageViewModel(url)
     {
+        var self = this;
         self.image = ko.observable(url);
         
         self.selected = ko.observable(false);

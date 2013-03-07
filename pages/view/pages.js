@@ -22,7 +22,7 @@ define(['knockout', 'jquery', 'kovalidation'], function(ko, $) {
        {
            require(['js/text!/pages/edit', '/admin/pages/pages.modify.viewmodel.js'], function(view, ViewModel, GalleryViewModel) {
                $("#main-region").html(view);
-               var viewModel = new ViewModel( {links : {self: "/api/pages"}, content:[""]});
+               var viewModel = new ViewModel( {links : {self: "/api/pages"}, content:[{type:"text", content:""}]});
                ko.applyBindings(viewModel, document.getElementById("main-region"));
                
            });

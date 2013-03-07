@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 
-var uploadPath = path.resolve(__dirname,"..", "content", "uploads");
+var uploadPath = path.resolve(__dirname,"..", "uploads");
 
 module.exports.index = function(req,res) {
 	var results = [];

@@ -1,15 +1,45 @@
+<% layout('layout') %>
+<style>
     
-<% for(var i=0; i< page.content.length; i++) {
-   
-    content = page.content[i];
-    if( content.type == "text" ) {
-%>
+      /* Special class on .container surrounding .navbar, used for positioning it into place. */
+    .navbar-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      margin-top: 20px;
+      margin-bottom: -90px; /* Negative margin to pull up carousel. 90px is roughly margins and height of navbar. */
+    }
+</style>
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide">
+      <div class="carousel-inner">
+           
+        <% for(var i = 0; i < page.content[0].images.length; i++ ) { %>
+          <div class="item <% if( i == 0 ) { %>active<% } %>">
+          <img src="<%= page.content[0].images[i] %>" alt="">
+        </div>
+        <% } %>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
 
-<%- content.content %>
+<div class="container">
 
-<% } else { %>
-    <%- partial('gallery.page.ejs') %>
- <% }
- 
- } %>
- 
+      
+      <div class="row">
+   <%- page.content[1].content %>
+</div>
+</div>
+   <script language="javascript" src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+   <script language="javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+    <script>
+      !function ($) {
+        $(function(){
+          $('#myCarousel').carousel()
+        })
+      }(window.jQuery)
+    </script>

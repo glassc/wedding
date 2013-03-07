@@ -10,8 +10,9 @@ exports.index = function(req, res) {
         pages.sort(function(a,b) { return a.order-b.order} ).forEach(function(page) {
             var data = assemble(page);
             results.push(data);
-            res.send(results);
+            
         });
+        res.send(results);
     });
 }
     

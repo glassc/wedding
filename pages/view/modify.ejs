@@ -49,7 +49,7 @@
 </script>
 
 <script type="text/html"  id = "gallery-content-template">
-    <ul  class="thumbnails" data-bind = "sortable: {data:images}" >
+    <ul  class="thumbnails" data-bind = "foreach: images" >
     
         <li data-bind = "event: { mouseover: ToggleSelected, mouseout: ToggleSelected }">
             
@@ -57,6 +57,7 @@
                 <div style = "height: 20px;">
                     <button class = "close"  data-bind="visible: selected, click: $parent.Remove" style = "position: relative;">&times</button>
                 </div>
+               
                 <img  data-bind = "attr: {src: image}">
             </div>
          
