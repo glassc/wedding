@@ -7,11 +7,44 @@
       margin-top: 20px;
       
     }
+    .header 
+    {
+        margin-bottom: 100px
+    }
+    
+    .header img
+    {
+     
+        height: 150px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+         z-index: -1;
+      
+        
+    }
+    
+    
 </style>
+
+<div class="header">
+   
+        <% if( page.content.length > 0 && page.content[0].type == "gallery") { %>
+           <img src="<%= page.content[0].images[0] %>" alt="">
+        <% } %>
+        
+        
+   
+</div>
+
 <div class = "container" style = "margin-top: 25px">
 
-<% for(var i = 0; i < page.content.length; i++ ) { %>
+<% for(var i = 0; i < page.content.length; i++ ) { 
+if (page.content[i].type != "gallery") {
+%>
+
 <%- page.content[i].content %>
-<% } %>
+<% } } %>
 
 </div>

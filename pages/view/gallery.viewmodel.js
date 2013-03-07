@@ -46,7 +46,7 @@ define(["knockout", "jquery", "kosortable"], function(ko, $) {
         
         function AddImage(url)
         {
-            self.images.push(url);
+            self.images.push(new ImageViewModel(url));
         }
         
         self.ToJSON = function()
