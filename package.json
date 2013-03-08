@@ -1,6 +1,6 @@
 {
-  "name": "typescript-spike",
-  "description": "type script spike",
+  "name": "wedding-website",
+  "description": "Website for our wedding!",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
