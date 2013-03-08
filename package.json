@@ -8,7 +8,8 @@
     "mongoskin": "0.4.4",
     "ejs-locals": "~0.2.5",
     "async": "~0.1.22",
-    "passport" : "",
-    "passport-google" : ""
+    "passport": "",
+    "passport-google": "",
+    "connect-flash": "~0.1.0"
   }
 }

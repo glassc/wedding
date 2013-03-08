@@ -3,5 +3,5 @@ exports.index = function(req, res) {
 }
 
 exports.login = function(req,res) {
-    res.render(__dirname + '/templates/login');
+    res.render(__dirname + '/templates/login', {info: req.flash("error")});
 }

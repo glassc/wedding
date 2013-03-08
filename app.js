@@ -1,6 +1,6 @@
+var flash = require('connect-flash');
 var express = require('express');
 var app = express();
-
 var authentication = require('./lib/authentication');
 
 
@@ -10,6 +10,7 @@ app.use(express.favicon());
 app.use(express.bodyParser());
 app.use(express.cookieParser());
 app.use(express.session({secret: "la la la"}));
+app.use(flash());
 
 
 authentication.enable(app);
