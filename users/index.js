@@ -7,5 +7,5 @@ module.exports = function(app)
     app.get("/api/users", controller.index);
     app.delete("/api/users/:user", controller.destroy);
     app.get("/admin/users", controller.show);
-    app.use("/admin/users", express.static(__dirname + "/view", { maxAge: 1 }));
+    app.use("/admin/users/", express.static(__dirname + "/view", { maxAge: 1 }));
 }

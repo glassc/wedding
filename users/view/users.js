@@ -2,7 +2,7 @@ define(['knockout', 'jquery', 'kovalidation'], function(ko, $) {
    return {
        index: function()
        {
-           require(['js/text!/users', '/admin/users/users.list.viewmodel.js'], function(view, ViewModel) {
+           require(['js/text!/users', '/admin/users/users_list_viewmodel.js'], function(view, ViewModel) {
                $.ajax({
                    url: "/api/users/",
                    type: 'GET'
