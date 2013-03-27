@@ -10,8 +10,8 @@ define(["knockout", "jquery", "kosortable"], function(ko, $) {
         self.selected = ko.observable(false);
         self.images = ko.observableArray();
         self.type = "Gallery";
-        self.currentImage = null;
-        
+        self.currentImage = ko.observable(null);
+        self.GalleryMode = ko.observable(true);
         
         if( images )
         {
@@ -81,23 +81,22 @@ define(["knockout", "jquery", "kosortable"], function(ko, $) {
             self.images.remove(image);
         }
         
-        self.Edit = function(image)
+        self.ToEditMode = function(image)
         {
-            if( InEditMode() ) return;
+            if( !self.GalleryMode() ) return;
             image.ToggleEditMode(true);
-            self.currentImage = image;
+            self.GalleryMode(false);
         }
         
-        self.GalleryMode = function(image)
+        self.ToGalleryMode = function(image)
         {
             image.ToggleEditMode(false);
-            self.currentImage = null;
+            self.GalleryMode(true);
         }
         
-        function InEditMode()
-        {
-            return self.currentImage !== null;
-        }
+    
+        
+      
        
     }
     
@@ -106,14 +105,9 @@ define(["knockout", "jquery", "kosortable"], function(ko, $) {
         var self = this;
         self.image = ko.observable(image.url);
         self.View = ko.observable("gallery-content-template-small");
-        self.selected = ko.observable(false);
         self.caption = ko.observable(image.caption);
         
-        self.ToggleSelected = function()
-        {
-             self.selected( !self.selected() );
-        }
-        
+       
         self.ToggleEditMode = function(inEditMode)
         {
             self.View(inEditMode ? "gallery-content-template-edit" : "gallery-content-template-small")

@@ -55,9 +55,9 @@
 -->
 
 <script type="text/html"  id = "gallery-content-template">
-    <ul  class="thumbnails" data-bind = "sortable: { data : images }" >
+    <ul  class="thumbnails" data-bind = "sortable: { data : images, isEnabled:  GalleryMode}" >
     
-        <li data-bind = "event: { mouseover: ToggleSelected, mouseout: ToggleSelected }">
+        <li>
             <div data-bind = "template: View" ></div>            
         </li>  
     </ul>
@@ -79,7 +79,7 @@
         <img data-bind = "attr: {src: image}" style = "max-width:95%; max-height: 300px;padding-bottom:15px">
         <textarea style = "width: 95%; height: 85px;" data-bind = "value:caption"></textarea>
         <div style = "text-align:right">
-            <button class = "btn" data-bind = "click: $parent.GalleryMode">Close</button>
+            <button class = "btn" data-bind = "click: $parent.ToGalleryMode">Close</button>
             <button class = "btn btn-danger" data-bind = "click: $parent.Remove">Remove</button>
         </div>
     </div>
@@ -87,7 +87,7 @@
 
 <script type="text/html" id = "gallery-content-template-small">
     <div class = "thumbnail" style = "width: 150px;height: 150px;display: table-cell">
-        <a href = "#" data-bind = "click: $parent.Edit">
+        <a href = "#" data-bind = "click: $parent.ToEditMode">
             <img data-bind = "attr: {src: image}" style = "max-width:150px; max-height: 150px;padding-bottom:15px">
             <div data-bind = "text: caption" style = "max-width:150px; max-height: 25px;overflow-y:hidden"></div>
         </a>
