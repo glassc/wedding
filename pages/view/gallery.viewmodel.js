@@ -1,4 +1,4 @@
-define(["knockout", "jquery", "kosortable"], function(ko, $) {
+define(["knockout", "jquery", "alertify", "kosortable"], function(ko, $, alertify) {
     
     
     
@@ -77,8 +77,13 @@ define(["knockout", "jquery", "kosortable"], function(ko, $) {
         
         self.Remove = function(image)
         {
-            
-            self.images.remove(image);
+            alertify.set({ labels: {ok     : "Yes",    cancel : "No"}, buttonReverse: true });
+            alertify.confirm("Are you sure you would like to remove this image?", function(e)  {
+                if( !e ) return;
+                self.ToGalleryMode(image)
+                self.images.remove(image);
+                
+            });
         }
         
         self.ToEditMode = function(image)
