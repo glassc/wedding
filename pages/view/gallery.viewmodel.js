@@ -118,8 +118,16 @@ define(["knockout", "jquery", "alertify", "kosortable"], function(ko, $, alertif
             self.View(inEditMode ? "gallery-content-template-edit" : "gallery-content-template-small")
         }
         
-       
+        self.Hide = function()
+        {
+            self.View("gallery-content-template-small");
+        }
         
+        self.Edit = function()
+        {
+            self.View("gallery-content-template-edit");
+            
+        }
         
     }
     

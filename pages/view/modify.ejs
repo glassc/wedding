@@ -1,3 +1,31 @@
+<style>
+    .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    filter:alpha(opacity=85);
+    -moz-opacity:0.85;
+    -khtml-opacity: 0.85;
+    opacity: 0.85;
+    z-index: 99999;
+}
+
+
+.overlay-content {
+    
+    z-index: 99999;
+    background-color: #FFFFFF;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+}
+</style>
 
 <div id = "other">
 <div class="control-group"  data-bind="validationElement: title">
@@ -75,19 +103,12 @@
 </script>
 
 <script type="text/html" id = "gallery-content-template-edit">
-     <div class = "thumbnail" style = "width: 700px; height: 400px;text-align: center;">
-        <img data-bind = "attr: {src: image}" style = "max-width:95%; max-height: 300px;padding-bottom:15px">
-        <textarea style = "width: 95%; height: 85px;" data-bind = "value:caption"></textarea>
-        <div style = "text-align:right">
-            <button class = "btn" data-bind = "click: $parent.ToGalleryMode">Close</button>
-            <button class = "btn btn-danger" data-bind = "click: $parent.Remove">Remove</button>
-        </div>
-    </div>
+      <%- partial('../templates/modify-gallery-image') %>
 </script>
 
 <script type="text/html" id = "gallery-content-template-small">
     <div class = "thumbnail" style = "width: 150px;height: 150px;display: table-cell">
-        <a href = "#" data-bind = "click: $parent.ToEditMode">
+        <a href = "#" data-bind = "click: Edit">
             <img data-bind = "attr: {src: image}" style = "max-width:150px; max-height: 150px;padding-bottom:15px">
             <div data-bind = "text: caption" style = "max-width:150px; max-height: 25px;overflow-y:hidden"></div>
         </a>
