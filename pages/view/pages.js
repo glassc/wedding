@@ -1,8 +1,11 @@
-define(['knockout', 'jquery', 'kovalidation'], function(ko, $) {
+define(['knockout', 'jquery', 'kovalidation'], function(ko,$) {
+
+   
    return {
        edit: function(pageid)
        {
-           require(['js/text!/pages/edit', '/admin/pages/pages.modify.viewmodel.js'], function(view, ViewModel, GalleryViewModel) {
+           require(['js/text!/pages/edit', '/admin/pages/pages.modify.viewmodel.js'], function(view, ViewModel) {
+               
                $.ajax({
                    url: "/api/pages/" + pageid,
                    type: 'GET'
@@ -10,7 +13,8 @@ define(['knockout', 'jquery', 'kovalidation'], function(ko, $) {
                        $("#main-region").html(view);
                        var viewModel = new ViewModel(page);
                        ko.applyBindings(viewModel, document.getElementById("main-region"));
-                     
+
+
                });
            });
 

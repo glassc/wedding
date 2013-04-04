@@ -1,4 +1,4 @@
-define(["knockout", "jquery", "alertify", "kosortable"], function(ko, $, alertify) {
+define(["knockout", "jquery", "alertify",  '/admin/images/image.browser.js', "kosortable",], function(ko, $, alertify, imagebrowser) {
     
     
     
@@ -10,9 +10,7 @@ define(["knockout", "jquery", "alertify", "kosortable"], function(ko, $, alertif
         self.selected = ko.observable(false);
         self.images = ko.observableArray();
         self.type = "Gallery";
-        self.currentImage = ko.observable(null);
-        self.GalleryMode = ko.observable(true);
-        
+     
         if( images )
         {
             images.forEach(function(image) {
@@ -24,7 +22,12 @@ define(["knockout", "jquery", "alertify", "kosortable"], function(ko, $, alertif
         
         self.ShowFileChooser = function()
         {
-            $('#file_upload').click();
+
+            imagebrowser.show(function(image) {
+                if( image === null) return;
+                self.images.push(new ImageViewModel({url: image, caption: ""}));
+            });
+       
         }
         
      
@@ -86,21 +89,6 @@ define(["knockout", "jquery", "alertify", "kosortable"], function(ko, $, alertif
             });
         }
         
-        self.ToEditMode = function(image)
-        {
-            if( !self.GalleryMode() ) return;
-            image.ToggleEditMode(true);
-            self.GalleryMode(false);
-        }
-        
-        self.ToGalleryMode = function(image)
-        {
-            image.ToggleEditMode(false);
-            self.GalleryMode(true);
-        }
-        
-    
-        
       
        
     }
@@ -111,13 +99,7 @@ define(["knockout", "jquery", "alertify", "kosortable"], function(ko, $, alertif
         self.image = ko.observable(image.url);
         self.View = ko.observable("gallery-content-template-small");
         self.caption = ko.observable(image.caption);
-        
-       
-        self.ToggleEditMode = function(inEditMode)
-        {
-            self.View(inEditMode ? "gallery-content-template-edit" : "gallery-content-template-small")
-        }
-        
+ 
         self.Hide = function()
         {
             self.View("gallery-content-template-small");

@@ -21,3 +21,7 @@ module.exports.insert = function(req, res) {
         });
     });
 }
+
+module.exports.browser = function(req, res) {
+  res.render(__dirname + "/templates/image_browser");
+}

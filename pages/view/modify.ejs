@@ -27,7 +27,9 @@
 }
 </style>
 
-<div id = "other">
+
+
+
 <div class="control-group"  data-bind="validationElement: title">
     <label  class="control-label" for = "title">Title</label>
     <div class="controls">
@@ -58,10 +60,11 @@
     <div data-bind="event: { mouseover: ToggleSelected, mouseout: ToggleSelected }" style="padding-top:50px;">
         <div>
             <button class="close pull-right" style = "display: inline" data-bind="click: $parent.Remove, visible: selected">&times;</button>
-            <label data-bind="text: type"></label>
+            <h3 data-bind="text: type"></h3>
             
             <div class = "clearfix"></div>
         </div>
+        
         <div  data-bind="template: template"></div>
     </div>
 </div>
@@ -71,35 +74,26 @@
 </div>
 <br /><br />
 
+
+
 <script type="text/html" id = "html-content-template">
     
     <div style = "height:350px;width:100%;"  data-bind="htmlcontent: content" class = "uneditable-input" ></div>
 </script>
 
-<!--
-        <div style = "height: 20px;">
-                    <button class = "close"  data-bind="visible: selected, click: $parent.Remove" style = "position: relative;">&times</button>
-                </div>
--->
 
 <script type="text/html"  id = "gallery-content-template">
-    <ul  class="thumbnails" data-bind = "sortable: { data : images, isEnabled:  GalleryMode}" >
+
+        <i class = "icon-picture"></i> <a href = "#"  data-bind = "click: ShowFileChooser" >Click here to add an image</a>
+
+    <br /><br />
+    <ul  class="thumbnails" data-bind = "sortable: { data : images}" >
     
         <li>
             <div data-bind = "template: View" ></div>            
         </li>  
     </ul>
-        
-    <ul class="thumbnails">
-            <li >
-            <a href ="#"  data-bind = "click: ShowFileChooser"  class="thumbnail" style = "width: 150px; height: 150px;text-align: center;vertical-align: middle; display: table-cell; border-style: dashed" >
-                Click here to upload an image
-            </a>
-            
-            <input type="file" id = "file_upload" style = "display: none;" data-bind = "event: {change: UploadImage}"/>
-                
-        </li>
-    </ul>
+  
 </script>
 
 <script type="text/html" id = "gallery-content-template-edit">
