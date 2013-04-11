@@ -1,6 +1,4 @@
 require.config({
-
-    deps: ["/admin/js/main.js"],
     baseUrl: "/admin",
     paths: {
         jquery: 'http://code.jquery.com/jquery-1.8.3.min',

@@ -4,7 +4,6 @@ var express = require('express');
 
 module.exports = function(app)
 {
-    app.get("/api/pages", pages_controller.index);
     app.post("/api/pages/order", pages_controller.updateorder);
     app.get("/api/pages/:page", pages_controller.details);
     app.post("/api/pages/:page", pages_controller.update);

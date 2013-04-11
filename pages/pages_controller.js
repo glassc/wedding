@@ -2,31 +2,18 @@ var db = require('../lib/connection');
 var Repository = require('../lib/repository');
 var pageRepository = new Repository(db, "pages");
 var async = require('async');
-
-
-exports.index = function(req, res) {
-    db.collection('pages').find().toArray(function(err, pages) {
-        var results = [];
-        pages.sort(function(a,b) { return a.order-b.order} ).forEach(function(page) {
-            var data = assemble(page);
-            results.push(data);
-            
-        });
-        res.send(results);
-    });
-}
+var assemble = require('./page_assembler');
     
-
 
 exports.details = function(req, res) {
     pageRepository.load(req.params.page, function(err, page) {
-        res.send(assemble(page));
+        res.send(assemble.page(page));
     });
 }
 
 exports.insert = function(req, res) {
     pageRepository.save({title:req.body.title, content: req.body.content, slug: req.body.slug, order:0}, function(err, page) {
-        res.send( assemble(page) );
+        res.send( assemble.page(page) );
     });
 }
 
@@ -37,7 +24,7 @@ exports.update = function(req, res) {
         page.slug = req.body.slug;
         page.title = req.body.title;
         pageRepository.save(page, function(error, count) {
-            res.send( assemble(page) );
+            res.send( assemble.page(page) );
         });
     });
 }
@@ -74,9 +61,4 @@ function updatepageorder(task, callback) {
             callback();
         });
     });
-}
-
-function assemble(page)
-{
-    return {id: page._id, content: page.content, title: page.title, slug: page.slug, links: { self: "/api/pages/" + page._id}, order:page.order };
 }

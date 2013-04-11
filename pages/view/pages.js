@@ -1,4 +1,4 @@
-define(['knockout', 'jquery', 'kovalidation'], function(ko,$) {
+define(['knockout', 'jquery', '/admin/pages/pages.navigation.viewmodel.js'], function(ko,$, PagesViewModel) {
 
    
    return {
@@ -32,20 +32,10 @@ define(['knockout', 'jquery', 'kovalidation'], function(ko,$) {
            });
        },
 
-       navigation: function()
+       navigation: function(pages)
        {
-
-           $.ajax({
-               url: "/api/pages/",
-               type: 'GET'
-           }).done( function(pages) {
-                   require(['/admin/pages/pages.navigation.viewmodel.js'], function(ViewModel) {
-
-                       var viewModel = new ViewModel(pages);
-                       ko.applyBindings(viewModel, document.getElementById("navigation-region"));
-                       $("#page-navigation").show();
-                   });
-               });
+            var viewModel = new PagesViewModel(pages);
+            ko.applyBindings(viewModel, document.getElementById("navigation-region"));
        }
    }
 

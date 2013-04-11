@@ -1,10 +1,10 @@
-var controller = require('./admin_controller');
+var db = require('../lib/connection');
+var controller = require('./admin_controller')(db);
 var express = require('express');
 var path = require('path');
 
 module.exports = function(app, authentication)
 {
-
     app.get("/admin/login", controller.login);
     app.use("/css", express.static(__dirname + "/view/css", { maxAge: 1 }));
     app.use("/img", express.static(__dirname + "/view/img", { maxAge: 1 }));

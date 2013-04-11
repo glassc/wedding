@@ -10,14 +10,14 @@
     <div style = "height: 50px">
     <div id = "flash-region" class="alert alert-success"  data-bind="flash: message" style="display: none"></div>
     </div>
-    <div class="span3" id="admin-nav">
+    <div class="span3" id="admin-nav" >
 
 
-        <div id="navigation-region">
+        <div id="navigation-region" style = "display: none">
             <div class="nav-header"><a href="/admin/" >Dashboard</a></div>
             <div class="nav-header"><a href="/admin/" >Settings</a></div>
             <div class="nav-header">Pages</div>
-            <ul class="nav nav-list" data-bind="sortable: {data: pages, afterMove: save}" style="display: none;" id="page-navigation">
+            <ul class="nav nav-list" data-bind="sortable: {data: pages, afterMove: save}"  id="page-navigation">
                 <li data-bind=" event: { mouseover: select, mouseout: unselect }">
 
                     <a data-bind="text: title, attr: {href: url}" style="display:inline;"></a>
@@ -42,3 +42,15 @@
 
     </div>
 </div>
+
+<script language = "javascript">
+
+   require(["/admin/js/config.js"], function() {
+    require(["/admin/js/main.js"], function( bootloader) {
+        bootloader.start(<%-  JSON.stringify(admin) %>);
+    }); 
+    
+    });
+
+   
+</script>
