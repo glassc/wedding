@@ -1,0 +1,31 @@
+ <div>
+    <div class = "overlay" data-bind = "click: Hide"></div>
+    
+    <div class = "overlay-content">
+  
+  
+  <table  width = "100%" height = "100%">
+      <tr>
+          <td style = "text-align:center;">
+              <img data-bind = "attr: {src: image}" style = "max-width: 800px;">
+          </td>
+          <td style = "width: 260px;  vertical-align:top; padding-top:15px; padding-bottom:15px">
+          <form style = "border-left: 1px solid #C0C0C0; height: 100%; padding-left: 15px; padding-right: 15px;">
+            <fieldset>
+                <legend>Edit</legend>
+                <label>Caption</label>
+                <textarea style = "height: 85px;" data-bind = "value:caption"></textarea>
+                <div style = "text-align: right; padding-top: 30px;">
+                
+                <a data-bind = "click: Hide" href = "#" style = "padding-right: 25px" alt = "Done"><i class="icon-ok"></i></a>
+                <a data-bind = "click: $parent.Remove" href = "#"><i class="icon-trash" alt = "Remove"></i></a>
+                <!--
+                icon-picture
+                -->
+                </div>
+            </fieldset>
+              </form>
+          </td>
+      </tr>
+  </table>
+ </div>
