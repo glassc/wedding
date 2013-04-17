@@ -32,13 +32,13 @@ define(['knockout', 'amplify', 'alertify','amplify','kosortable','kocommand', 'b
 
 
             });
-        }
+        };
 
         self.remove = function(page)
         {
-            self.pages.remove(page)
+            self.pages.remove(page);
 
-        }
+        };
         
         function find(arr, callback)
         {
@@ -79,12 +79,12 @@ define(['knockout', 'amplify', 'alertify','amplify','kosortable','kocommand', 'b
         {
 
             self.isSelected(true);
-        }
+        };
 
         self.unselect = function()
         {
             self.isSelected(false);
-        }
+        };
 
         self.remove = ko.command({
             execute: function() {
@@ -106,7 +106,7 @@ define(['knockout', 'amplify', 'alertify','amplify','kosortable','kocommand', 'b
             canExecute: function() {
                 return true;
             }
-        })
+        });
     }
 
     return ViewModel;

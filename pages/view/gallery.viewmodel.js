@@ -28,7 +28,7 @@ define(["knockout", "jquery", "alertify",  '/admin/images/image.browser.js', "ko
                 self.images.push(new ImageViewModel({url: image, caption: ""}));
             });
        
-        }
+        };
         
      
         
@@ -47,7 +47,7 @@ define(["knockout", "jquery", "alertify",  '/admin/images/image.browser.js', "ko
                     
                     AddImage(result.url);
                 });    
-        }
+        };
         
         function AddImage(image)
         {
@@ -67,27 +67,27 @@ define(["knockout", "jquery", "alertify",  '/admin/images/image.browser.js', "ko
             return {
                 type: "gallery",
                 images: imageArr
-            }
+            };
           
             
             
-        }
+        };
         
         self.ToggleSelected = function()
         {
              self.selected( !self.selected() );
-        }
+        };
         
         self.Remove = function(image)
         {
             alertify.set({ labels: {ok     : "Yes",    cancel : "No"}, buttonReverse: true });
             alertify.confirm("Are you sure you would like to remove this image?", function(e)  {
                 if( !e ) return;
-                self.ToGalleryMode(image)
+                self.ToGalleryMode(image);
                 self.images.remove(image);
                 
             });
-        }
+        };
         
       
        
@@ -103,13 +103,13 @@ define(["knockout", "jquery", "alertify",  '/admin/images/image.browser.js', "ko
         self.Hide = function()
         {
             self.View("gallery-content-template-small");
-        }
+        };
         
         self.Edit = function()
         {
             self.View("gallery-content-template-edit");
             
-        }
+        };
         
     }
     

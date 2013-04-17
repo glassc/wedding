@@ -37,6 +37,6 @@ define(['knockout', 'jquery', '/admin/pages/pages.navigation.viewmodel.js'], fun
             var viewModel = new PagesViewModel(pages);
             ko.applyBindings(viewModel, document.getElementById("navigation-region"));
        }
-   }
+   };
 
 });

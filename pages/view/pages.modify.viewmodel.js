@@ -14,18 +14,18 @@ define(['knockout', 'jquery',  "alertify", 'amplify','/admin/pages/gallery.viewm
             return {
                 type: "text",
                 content: self.content()
-            }
-        }
+            };
+        };
         
         self.ToggleSelected = function()
         {
              self.selected( !self.selected() );
-        }
+        };
         
         self.Remove = function()
         {
             
-        }
+        };
         
         
     }
@@ -57,17 +57,17 @@ define(['knockout', 'jquery',  "alertify", 'amplify','/admin/pages/gallery.viewm
         self.AddHtmlContent = function()
         {
             self.content.push(new ContentViewModel());
-        }
+        };
         
         self.AddGalleryContent = function()
         {
             self.content.push(new GalleryViewModel());
-        }
+        };
         
         self.Remove = function(content)
         {
             self.content.remove(content);
-        }
+        };
         
 
         self.isNew = typeof(page.id) == 'undefined';
@@ -81,12 +81,12 @@ define(['knockout', 'jquery',  "alertify", 'amplify','/admin/pages/gallery.viewm
             });
             
             return result;
-        }
+        };
 
         self.isValid = function()
         {
             return ko.validation.group(self, {deep: true}).length === 0;
-        }
+        };
 
         self.save = ko.command({
             execute: function() {
@@ -108,8 +108,8 @@ define(['knockout', 'jquery',  "alertify", 'amplify','/admin/pages/gallery.viewm
             canExecute: function() {
                 return self.isValid();
             }
-        })
+        });
     }
 
     return ViewModel;
-})
+});
