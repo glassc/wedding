@@ -1,11 +1,10 @@
-var mongoskin = require("mongoskin");
 var db = require('../lib/connection');
 var Repository = require('../lib/repository');
 var repository = new Repository(db, "users");
 
 exports.show = function(req, res) {
   res.render(__dirname + "/templates/index");
-}
+};
 
 exports.insert = function(req, res) {
     var email = req.body.email;
@@ -21,7 +20,7 @@ exports.insert = function(req, res) {
     });
     
    
-}
+};
 
 exports.index = function(req,res) {
     db.collection('users').find().toArray(function(err, users) {
@@ -32,13 +31,13 @@ exports.index = function(req,res) {
         
         res.send(results);
     });
-}
+};
 
 exports.destroy = function(req, res) {
       repository.remove(req.params.user, function(err, result) {
         res.send(204);
       });
-}
+};
 
 function assemble(user)
 {
