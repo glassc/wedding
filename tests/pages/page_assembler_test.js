@@ -14,8 +14,8 @@ describe("page_assember", function()
             title: "my page",
             slug: "/mypage",
             order: 1
-        }
-    })
+        };
+    });
     
     it('should assember a page', function() {
         var actual = assembe.page(page);
