@@ -12,7 +12,7 @@ module.exports.index = function(req,res) {
 		});
         res.send(results);
 	});
-}
+};
 	
 module.exports.insert = function(req, res) {
     fs.readFile(req.files.image.path, function(err, data) {
@@ -20,8 +20,8 @@ module.exports.insert = function(req, res) {
             res.send({url: "/uploads/" + req.files.image.name});
         });
     });
-}
+};
 
 module.exports.browser = function(req, res) {
   res.render(__dirname + "/templates/image_browser");
-}
+};

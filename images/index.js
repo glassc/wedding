@@ -10,4 +10,4 @@ module.exports = function(app)
    app.post("/api/images", controller.insert);
    app.use("/uploads", express.static(config.upload_dir, { maxAge: 1 }));
    app.use( "/admin/images", express.static(__dirname + "/view", { maxAge: 1 }));
-}
+};

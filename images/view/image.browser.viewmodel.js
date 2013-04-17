@@ -16,12 +16,12 @@ define(['knockout', 'kocommand'], function(ko) {
         self.Cancel = function()
         {
            self.callback(null);    
-        }
+        };
         
         self.ShowFileChooser = function()
         {
              $('#image-browser-file-upload').click();
-        }
+        };
         
         self.UploadImage = function(data, event)
         {
@@ -38,7 +38,7 @@ define(['knockout', 'kocommand'], function(ko) {
                     
                     self.Images.push({id:  self.Images().length, url: result.url, IsSelected:  ko.observable(false)});
                 });    
-        }
+        };
         
      
         
@@ -52,11 +52,11 @@ define(['knockout', 'kocommand'], function(ko) {
              
                 return self.selectedImage() !== -1;
             }
-        })
+        });
         
         self.SelectImage = function(index) {
             self.selectedImage(index);
-        }
+        };
         
         self.IsSelected = function(index) {
          
@@ -64,7 +64,7 @@ define(['knockout', 'kocommand'], function(ko) {
               
                return index == self.selectedImage();
             });
-        }
+        };
         
         
         

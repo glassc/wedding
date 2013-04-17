@@ -6,7 +6,7 @@ define(['js/text!/images/browser', 'knockout', 'jquery', '/admin/images/image.br
             
             $.ajax({
                 url: "/api/images",
-                type: 'GET',
+                type: 'GET'
         
             }).done( function(images) {
                    
