@@ -1,4 +1,5 @@
 node_modules/
-config/dev.config.js
+config/config.js
 .c9revisions/
 uploads/
+release/
