@@ -10,12 +10,8 @@ describe("admin_controller", function() {
     
     beforeEach(function() {
         sandbox = sinon.sandbox.create();
-        
-        
-        
-        
         controller = require("../../admin/admin_controller")(db);
-        response = {render: sandbox.spy()}
+        response = {render: sandbox.spy()};
     
     });
     
@@ -39,10 +35,10 @@ describe("admin_controller", function() {
                         callback(null, []);
                         done();
                     }
-                }
+                };
             }
-        }
-        sandbox.stub(db, "collection").returns(collection)
+        };
+        sandbox.stub(db, "collection").returns(collection);
         controller.index(null, response);
         assert(response.render.calledOnce);
     });

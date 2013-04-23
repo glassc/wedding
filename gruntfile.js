@@ -9,8 +9,8 @@ module.exports = function(grunt)
         cafemocha: {
              src: 'tests/**/*_test.js',
              options: {
-                ui: 'bdd',
-             },
+                ui: 'bdd'
+             }
         },
         copy:  {
             deployment_files : {
@@ -29,9 +29,24 @@ module.exports = function(grunt)
                             return dest +  'config.js';
                         }
                     
-                    },
+                    }
                 ]
+            
+                
+            },
+            test_config: {
+                files: [
+                    {expand: true, src: ['config/config.js.template'], dest: 'config/', 
+                        rename: function(dest, src) {
+                            return dest +  'config.js';
+                        }
+                    }
+                        
+                ]
+                    
             }
+            
+            
             
         },
         clean: {
@@ -53,7 +68,8 @@ module.exports = function(grunt)
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-exec');
     
-    grunt.registerTask('default', 'jshint', 'cafemocha');
-    grunt.registerTask('deploy', 'clean:release', 'copy:deployment_files');
+    grunt.registerTask('default', ['jshint', 'cafemocha']);
+    grunt.registerTask('deploy', ['clean:release', 'copy:deployment_files']);
+    grunt.registerTask('travis', ['copy:test_config', 'default']);
 
 };
