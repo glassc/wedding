@@ -18,7 +18,7 @@ module.exports = function(db) {
         },
         
         login: function(req,res) {
-            res.render(__dirname + '/templates/login', {info: req.flash("error")});        
+           res.render(__dirname + '/templates/login', {info: req.flash("error")}); 
         }
     }
     
