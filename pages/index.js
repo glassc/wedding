@@ -1,5 +1,6 @@
+var db = require('../lib/connection');
 var pages_controller = require('./pages_controller');
-var home_controller = require('./home_controller');
+var home_controller = require('./home_controller')(db);
 var express = require('express');
 
 module.exports = function(app)
