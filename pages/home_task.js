@@ -17,7 +17,7 @@ module.exports = function(db) {
             });        
         }
     };
-}
+};
 
 function assemble(data, slug) {
     if( data.page === null ) return null;

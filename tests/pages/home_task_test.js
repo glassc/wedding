@@ -45,9 +45,8 @@ describe("home_controller", function() {
     });
     
     it('should get return null when no page is found', function(done) {
-
-        var callback = sandbox.spy(function(results) {done()});
-        collection.findOne = function(slug, callback) { callback(null,null)};
+        var callback = sandbox.spy(function(results) {done();});
+        collection.findOne = function(slug, callback) { callback(null,null);};
         sandbox.stub(db, "collection").withArgs("pages").returns(collection);
         task.get_page("/", callback);
         assert(callback.withArgs(null).calledOnce);
@@ -56,7 +55,7 @@ describe("home_controller", function() {
     
     it('should get a page', function(done) {
         
-        var callback = sandbox.spy(function(results) {done()});
+        var callback = sandbox.spy(function(results) {done();});
         sandbox.stub(db, "collection").withArgs("pages").returns(collection);
         task.get_page("/", callback);
         assert(callback.neverCalledWith(null));

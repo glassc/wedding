@@ -8,7 +8,7 @@ module.exports = function(task) {
         index:  function(req,res) {
             var template = typeof(req.params.slug) ? "index" : "page";
             task.get_page(typeof(req.params.slug) ? "/" : req.params.slug, function(result) {
-
+                
                 if(result === null)
                     res.send(404);
                 else
