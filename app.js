@@ -2,6 +2,7 @@ var flash = require('connect-flash');
 var express = require('express');
 var app = express();
 var authentication = require('./lib/authentication');
+var config = require("./config");
 
 
 app.engine('ejs', require('ejs-locals'));
@@ -23,4 +24,4 @@ require('./users')(app);
 require("./images")(app);
 
 
-app.listen(process.env.PORT);
+app.listen(config.PORT);
