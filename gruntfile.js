@@ -24,12 +24,7 @@ module.exports = function(grunt)
                     {expand: true, src: ['users/**'], dest: 'release/'},
                     {expand: true, src: ['app.js'], dest: 'release/'},
                     {expand: true, src: ['package.json'], dest: 'release/'},
-                    {expand: true, src: ['config/production.config.js'], dest: 'release/config/', 
-                        rename: function(dest, src) {
-                            return dest +  'config.js';
-                        }
-                    
-                    }
+                    {expand: true, src: ['config/index.js'], dest: 'release/config/'}
                 ]
             
                 
