@@ -1,6 +1,7 @@
 var db = require('../lib/connection');
 var pages_controller = require('./pages_controller');
-var home_controller = require('./home_controller')(db);
+var home_task = require('./home_task')(db);
+var home_controller = require('./home_controller')(home_task);
 var express = require('express');
 
 module.exports = function(app)

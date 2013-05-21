@@ -10,7 +10,8 @@
     "async": "~0.1.22",
     "passport": "",
     "passport-google": "",
-    "connect-flash": "~0.1.0"
+    "connect-flash": "~0.1.0",
+    "plates": "~0.4.8"
   },
   "devDependencies": {
     "mocha": "1.8.1",
@@ -22,8 +23,8 @@
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-clean": "~0.4.1",
     "grunt-exec": "~0.4.0"
-  } ,
+  },
   "scripts": {
-        "test": "grunt travis --verbose"
+    "test": "grunt travis --verbose"
   }
 }
