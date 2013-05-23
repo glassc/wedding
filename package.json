@@ -1,7 +1,7 @@
 {
   "name": "wedding-website",
   "description": "Website for our wedding!",
-  "version": "0.0.1",
+  "version": "1.0.4",
   "private": true,
   "dependencies": {
     "express": "3.x",
