@@ -5,7 +5,8 @@ module.exports = function(db) {
         get_page : function(slug, callback) {
             async.parallel({
                 page: function(callback) {
-                        db.collection("pages").findOne({slug: slug}, callback);
+
+                        db.collection("pages").findOne({slug: "/" +  slug}, callback);
                 },
                 navigation: function(callback) {
                         db.collection("pages").find().toArray(function(error, result) {
