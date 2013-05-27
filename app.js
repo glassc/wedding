@@ -25,4 +25,4 @@ require("./images")(app);
 
 
 
-app.listen(config.PORT);
+app.listen(config.port);

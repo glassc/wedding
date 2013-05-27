@@ -3,3 +3,4 @@ config/config.js
 .c9revisions/
 uploads/
 release/
+.idea/
