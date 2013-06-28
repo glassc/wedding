@@ -22,5 +22,5 @@ require("./admin")(app, authentication);
 require("./pages")(app);
 require('./users')(app);
 require("./images")(app);
-
+console.log(config);
 app.listen(config.PORT);
