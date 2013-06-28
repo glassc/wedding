@@ -1,6 +1,0 @@
-var path = require('path');
-
-module.exports = {
-    'database_connection' : 'mongo connection', 
-    'upload_dir' : path.resolve(__dirname,"..", "uploads")
-}

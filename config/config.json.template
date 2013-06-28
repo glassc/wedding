@@ -1,0 +1,7 @@
+var path = require('path');
+
+module.exports = {
+    'DATABASE_CONNECTION' : 'mongo connection',
+    'upload_dir' : path.resolve(__dirname,"..", "uploads"),
+    'PORT' : 3000
+}

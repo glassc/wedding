@@ -23,6 +23,4 @@ require("./pages")(app);
 require('./users')(app);
 require("./images")(app);
 
-
-
-app.listen(config.port);
+app.listen(config.PORT);

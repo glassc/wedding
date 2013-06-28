@@ -1,0 +1,5 @@
+{
+    "DATABASE_CONNECTION" : "wedding:wedding@localhost:27017/wedding",
+    "DOMAIN" :"",
+    "PORT" : 3000
+}
